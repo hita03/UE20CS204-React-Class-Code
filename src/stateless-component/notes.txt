@@ -1,0 +1,19 @@
+component vs state
+stateless components need not be interactive
+statefull components while building elemnets that accepts user inputs
+are elements that are interactive on page
+fetching data using rendering- dependent on state while rendering
+(dependent on data that can't be passed down as props)
+
+stateless will not have knowledge of past, current or possible future state change while state will contain the knowledge of past present and future state changes
+
+calculates state of the internal state of the components
+statefull will have state knowledge of core components
+
+stateless- provides referential transparency.
+staefull- receive info from the stateless componentsif state needs to be changed
+
+all function components can be considered as stateless components
+all class based are statefull
+
+Stateful react components inherits the class based components - states get inherited.

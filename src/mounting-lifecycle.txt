@@ -1,0 +1,52 @@
+###Mounting Lifecycle
+created and inserted into DOM
+1.constructor()
+    mounted to DOM
+        example: const MyComponent extends React.Component{
+            constructor(props){
+                super(props)
+                this.state={
+                    pts:0
+                }
+            } this.handlePts = this.handlePts.bind(this); //see in detail about "bind"
+        }
+
+2. static getDerivedStateFromProps()
+(this feature is optional)
+    To ensure all states and props are in sync when required.   
+    const MyComponent extends React.Component{
+        static getDerivedStateFromProps(){
+            return{
+                pts:200 //here we are updating and return the object pts.
+            }
+        }
+        //can take props, state, return an object of state of that particular component, can return null value also.
+
+3. render()
+    we can return plain string, numbers, arrays, react fragment, boolean
+    don't use/cannot interact with setState or external API within render
+
+4. ComponentDidMount 
+
+    This func is invoked immediately after component is mounted onto the DOM.
+    It is not mandatory.
+
+
+
+###Updating Phase
+    1. static getDerivedStateFromProps()
+        repition of optional 2.
+    2. shouldComponentUpdate() 
+        for initiating APIs etc.
+        can return boolean values, setState values and update them
+    3. getSnapshotBeforeUpdate()
+        stores previous values from the states after the DOM has been updated.
+        all values in this will be passed onto componentDidUpdate()
+    4. componentDidUpdate(prevProps, prevState, snap)    
+
+
+###Unmount
+    Invoked after component has been unmounted/destroyed.
+    1. network requests, clearing interval, remove event listeners
+
+    error handling -- componentDidCatch() and getDerivedStateFromError()
